@@ -63,8 +63,6 @@ void create_innventory(struct shopkeeper* shop){
     printf("Enter number of categories: ");
     scanf("%d", &shop->category_variety);
 
-    //shop->list = malloc(shop->category_variety * sizeof(struct category_node));
-
     for(int i=0; i<shop->category_variety; i++){
         printf("Enter category %d name: ", i+1);
         scanf(" %s", shop->list[i].name);
@@ -147,8 +145,6 @@ void add_to_inventory(struct shopkeeper* shop){
         }
     } else {
         printf("\nCreating new category %s.\n", category_name);
-
-        //shop->list = realloc(shop->list, (shop->category_variety+1)*sizeof(struct category_node));
 
         int new_idx = shop->category_variety;
         shop->category_variety++;
@@ -348,7 +344,6 @@ void free_inventory(struct shopkeeper* shop){
             free(to_free);
         }
     }
-    //free(shop->list);
     free(shop);
 }
 
